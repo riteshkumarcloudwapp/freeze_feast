@@ -1,0 +1,17 @@
+{
+  "name": "freeze_feast",
+  "version": "1.0.0",
+  "description": "online food ordering website.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Ritesh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
