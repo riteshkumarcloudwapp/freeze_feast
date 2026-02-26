@@ -1,0 +1,98 @@
+<%- include('../partials/header.ejs') %>
+
+<!-- Register Section -->
+    <section class="ff-register-section">
+        <div class="register-container">
+
+            <!-- Header -->
+            <div class="register-header">
+                <h1 class="register-title">Register</h1>
+                <p class="register-subtitle">A link to set a new password will be sent to your email address.</p>
+            </div>
+
+            <!-- Register Form -->
+            <form class="register-form" action="#" method="POST">
+                <!-- Full Name Field -->
+                <div class="form-floating-group">
+                    <label for="fullName">Full Name</label>
+                    <input 
+                        type="text" 
+                        id="fullName" 
+                        name="fullName" 
+                        placeholder="Enter full name" 
+                        required
+                        autocomplete="name"
+                    >
+                </div>
+
+                <!-- Email Field -->
+                <div class="form-floating-group">
+                    <label for="email">Email Address</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="example@gmail.com" 
+                        required
+                        autocomplete="email"
+                    >
+                </div>
+
+                <!-- Password Field -->
+                <div class="form-floating-group password-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="8+ characters" 
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="password">
+                        <i class="fa-regular fa-eye"></i>
+                    </button>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-floating-group password-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input 
+                        type="password" 
+                        id="confirmPassword" 
+                        name="confirmPassword" 
+                        placeholder="8+ characters" 
+                        required
+                        autocomplete="new-password"
+                        minlength="8"
+                    >
+                    <button type="button" class="password-toggle" data-target="confirmPassword">
+                        <i class="fa-regular fa-eye-slash"></i>
+                    </button>
+                </div>
+
+                <!-- Terms & Conditions -->
+                <div class="terms-checkbox">
+                    <label class="custom-checkbox">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <span class="checkmark"></span>
+                        <span class="terms-text">
+                            By continuing, you agree to our 
+                            <a href="#">Terms & Condition</a> or <a href="#">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-register">Register</button>
+            </form>
+
+            <!-- Login Link -->
+            <div class="login-link">
+                <p>Already have an account? <a href="login.html">Sign In</a></p>
+            </div>
+        </div>
+    </section>
+
+<%- include('../partials/footer.ejs') %>

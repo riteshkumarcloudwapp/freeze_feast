@@ -1,1 +1,14 @@
-...............NOTES..................
+//...............NOTES..................
+
+//...........app.use("/public", express.static(path.join(process.cwd(), "public")));............
+
+// Whenever a request starts with /public, run this middleware.
+// express.static() is a built-in middleware in Express.
+// Serve static files (HTML, CSS, JS, images, PDFs, etc.)
+
+//The current working directory (your project root folder) -> process.cwd
+// path.join(...) => /home/ritesh/my-project/public
+
+//app.set()
+// It does NOT run on every request.
+// It just stores values inside Express.
