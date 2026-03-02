@@ -4,6 +4,8 @@ import { sequelize, DATABASE_URL } from "./src/config/database.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 import path from "path";
+import session from "express-session";
+import flash from "connect-flash";
 
 const app = express();
 
@@ -16,6 +18,28 @@ app.use("/assets", express.static(path.join(process.cwd(), "assets")));
 //ejs config
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src/views"));
+
+//session config
+app.use(
+  session({
+    secret: config.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false, // VERY IMPORTANT for localhost //flash will not work if true.
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60, // 1 hour
+    },
+  }),
+);
+
+//connect flash config
+app.use(flash());
+app.use((req, res, next) => {
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+});
 
 //database connection
 try {

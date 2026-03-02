@@ -9,5 +9,7 @@ router.get("/dashboard", dashboard);
 router.get("/login", userLogin);
 router.post("/login", userLogin);
 //register
+router.get("/register", registerUser);
 router.post("/register", registerUser);
+
 export { router };
