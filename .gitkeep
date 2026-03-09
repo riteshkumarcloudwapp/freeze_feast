@@ -38,3 +38,23 @@ export default {
 };
 
 //4.create knex_data folder under which migration and seeds will be there.
+
+//🔹 What is a Session?
+// A session stores user data on the server so that the user remains logged in across multiple requests/pages.
+//When a user logs in successfully, you store some information in req.session.
+
+//🔹 Example Flow
+
+//1️⃣ User logs in
+//2️⃣ Server verifies email & password
+//3️⃣ Session is created
+
+Session;
+{
+  userId: 5;
+  role: "admin";
+}
+
+//4️⃣ Browser receives session cookie
+
+//5️⃣ Every request will automatically send that cookie.

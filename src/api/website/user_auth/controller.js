@@ -1,10 +1,13 @@
 import Joi from "joi";
 import bcrypt from "bcrypt";
 import models from "../../../models/index.js";
-import { session } from "express-session";
+import session from "express-session";
 
 //website dashboard
 export const dashboard = async (req, res) => {
+  if (!req.session.userId) {
+    return res.redirect("/freeze-feast/login");
+  }
   return res.render("website/index");
 };
 
@@ -12,8 +15,8 @@ export const dashboard = async (req, res) => {
 export const userLogin = async (req, res) => {
   try {
     if (req.method === "POST") {
-      const { email, password } = req.body();
-      const validation = Joi.validate({
+      const { email, password } = req.body;
+      const validation = Joi.object({
         email: Joi.string().trim().lowercase().email().required(),
         password: Joi.string().min(8).required(),
       });
@@ -30,13 +33,14 @@ export const userLogin = async (req, res) => {
       }
       //check for password
       const checkPassword = await bcrypt.compare(
-        existedUser.password,
         password,
+        existedUser.password,
       );
       if (!checkPassword) {
         req.flash("error", "Invalid email or password");
         return res.redirect("/freeze-feast/login");
       }
+
       //Create session
       req.session.userId = existedUser.id;
       req.session.role = existedUser.role;

@@ -54,11 +54,15 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from server" });
 });
 
-//...............WEBSITE ROUTE................................
+//..................WEBSITE ROUTE................................
 
 //user_auth
 import { router as websiteRoutes } from "./src/api/website/user_auth/index.js";
 app.use("/freeze-feast", websiteRoutes);
+
+//dashboard
+import { router as dashboardRoutes } from "./src/api/website/dashboard/index.js";
+app.use("/freeze-feast", dashboardRoutes);
 
 app.listen(config.PORT, (req, res) => {
   console.log(`Server listening on: http://${config.HOST}:${config.PORT}`);
