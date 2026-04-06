@@ -1,0 +1,353 @@
+<%- include('../partials/header.ejs') %>
+
+
+     <!-- Shop Section -->
+    <section class="ff-shop-section">
+        <div class="container">
+            <div class="ff-shop-wrapper">
+                <!-- Sidebar -->
+                <aside class="ff-shop-sidebar">
+                    <!-- Categories Filter -->
+                    <div class="ff-sidebar-widget">
+                        <h3 class="ff-widget-title">Categories</h3>
+                        <ul class="ff-category-list">
+                            <li class="ff-category-item active">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox" checked>
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Breakfast</span>
+                                    <span class="ff-category-count">(25)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Lunch</span>
+                                    <span class="ff-category-count">(35)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Dinner</span>
+                                    <span class="ff-category-count">(17)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Snacks</span>
+                                    <span class="ff-category-count">(12)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Desserts</span>
+                                    <span class="ff-category-count">(50)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Beverages</span>
+                                    <span class="ff-category-count">(23)</span>
+                                </label>
+                            </li>
+                            <li class="ff-category-item">
+                                <label class="ff-checkbox-label">
+                                    <input type="checkbox">
+                                    <span class="ff-checkmark"></span>
+                                    <span class="ff-category-name">Special Menu</span>
+                                    <span class="ff-category-count">(16)</span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="ff-sidebar-widget">
+                        <h3 class="ff-widget-title">Filter By Price</h3>
+                        <div class="ff-price-range-dual">
+                            <div class="ff-range-track">
+                                <div class="ff-range-progress"></div>
+                            </div>
+                            <div class="ff-range-inputs">
+                                <input type="range" class="ff-range-min" min="0" max="100" value="10">
+                                <input type="range" class="ff-range-max" min="0" max="100" value="70">
+                            </div>
+                            <div class="ff-price-values">
+                                <span class="ff-price-min">$5</span>
+                                <span class="ff-price-max">$50</span>
+                            </div>
+                        </div>
+                        <button class="ff-filter-btn">Filter</button>
+                    </div>
+                    
+                </aside>
+
+                <!-- Main Content -->
+                <div class="ff-shop-content">
+                    <!-- Toolbar -->
+                    <div class="ff-shop-toolbar">
+                        <div class="ff-results-count">
+                            <span class="ff-results-text">Showing 1–12 of 38 results</span>
+                            <div class="ff-search-field">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <input type="text" class="ff-product-search-input" placeholder="Search products..." id="productSearchInput">
+                            </div>
+                        </div>
+                        <div class="ff-toolbar-right">
+                            <div class="ff-sort-dropdown">
+                                <select class="ff-sort-select">
+                                    <option value="default">Default Sorting</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Top Rated</option>
+                                    <option value="newest">Newest First</option>
+                                </select>
+                            </div>
+                            <div class="ff-view-toggle">
+                                <button class="ff-view-btn active" data-view="grid">
+                                    <i class="fa-solid fa-grip"></i>
+                                </button>
+                                <button class="ff-view-btn" data-view="list">
+                                    <i class="fa-solid fa-list"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="ff-products-grid" id="productsGrid">
+                        <!-- Product 1 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/home-1/popular-items1.jpg" alt="Smoky Stack Burger">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Smoky Stack Burger</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$16.50</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 - Has Options -->
+                        <div class="ff-product-card" data-has-options="true">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html?options=true">
+                                    <img src="../../../../assets/img/home-1/popular-items2.jpg" alt="Creamy Alfredo Pasta">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html?options=true">Creamy Alfredo Pasta</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$14.50</span>
+                                    <a href="product-detail.html?options=true" class="ff-select-option-btn">Select Option</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/home-1/popular-items3.jpg" alt="Tasty Chicken Salad">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Tasty Chicken Salad</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$12.00</span>
+                                    <div class="ff-quantity-control" data-in-cart="true">
+                                        <button class="ff-qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="ff-qty-value">1</span>
+                                        <button class="ff-qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/home-1/popular-items4.jpg" alt="Desert Delicia's">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Desert Delicia's</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$15.00</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 - Has Options -->
+                        <div class="ff-product-card" data-has-options="true">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html?options=true">
+                                    <img src="../../../../assets/img/inner/shop-slide1.jpg" alt="Spicy Fire Burger">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html?options=true">Spicy Fire Burger</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$18.00</span>
+                                    <a href="product-detail.html?options=true" class="ff-select-option-btn">Select Option</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-slide2.jpg" alt="Crispy Chicken Wings">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Crispy Chicken Wings</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$15.00</span>
+                                    <div class="ff-quantity-control" data-in-cart="true">
+                                        <button class="ff-qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="ff-qty-value">2</span>
+                                        <button class="ff-qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-slide3.jpg" alt="Spicy Arrabbiata Pasta">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Spicy Arrabbiata Pasta</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$13.50</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-slide4.jpg" alt="Chicken Mushroom Pasta">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Chicken Mushroom Pasta</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$14.00</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-grid1.jpg" alt="Turkey Bacon Biscuit">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Turkey Bacon, Egg & Cheese Biscuit</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$8.50</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 10 - Has Options -->
+                        <div class="ff-product-card" data-has-options="true">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html?options=true">
+                                    <img src="../../../../assets/img/inner/shop-grid2.jpg" alt="Beef Sausage Muffin">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html?options=true">Beef Sausage, Egg & Cheese Muffin</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$7.00</span>
+                                    <a href="product-detail.html?options=true" class="ff-select-option-btn">Select Option</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 11 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-grid3.jpg" alt="Cinnamon Roll">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Cinnamon Roll</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$3.00</span>
+                                    <div class="ff-quantity-control" data-in-cart="true">
+                                        <button class="ff-qty-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                        <span class="ff-qty-value">1</span>
+                                        <button class="ff-qty-btn plus"><i class="fa-solid fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product 12 -->
+                        <div class="ff-product-card">
+                            <div class="ff-product-img">
+                                <a href="product-detail.html">
+                                    <img src="../../../../assets/img/inner/shop-grid4.jpg" alt="Greek Yogurt">
+                                </a>
+                            </div>
+                            <div class="ff-product-info">
+                                <h3 class="ff-product-name"><a href="product-detail.html">Freshly Made Greek Yogurt</a></h3>
+                                <div class="ff-product-footer">
+                                    <span class="ff-product-price">$5.00</span>
+                                    <button class="ff-add-cart-btn">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="ff-pagination">
+                        <button class="ff-page-btn ff-page-prev" disabled>
+                            <i class="fa-solid fa-chevron-left"></i> Previous
+                        </button>
+                        <div class="ff-page-numbers">
+                            <button class="ff-page-num active">1</button>
+                            <button class="ff-page-num">2</button>
+                            <button class="ff-page-num">3</button>
+                            <button class="ff-page-num">4</button>
+                        </div>
+                        <button class="ff-page-btn ff-page-next">
+                            Next <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<%- include('../partials/footer.ejs') %>

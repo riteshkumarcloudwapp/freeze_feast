@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="author" content="Freeze & Feast">
+    <meta name="description" content="Freeze & Feast - About Us">
+    <title>About Us - Freeze & Feast</title>
+    <link rel="shortcut icon" href="../../../../assets/images/favicon.svg">
+    <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../../assets/css/main.css">
+    <link rel="stylesheet" href="../../../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../../assets/css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Mobile Menu Overlay -->
+    <div class="ff-mobile-overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="ff-mobile-menu">
+        <div class="ff-mobile-menu-header">
+            <a href="index.html" class="ff-logo">
+                <img src="../../../../assets/images/logo.svg" alt="Freeze &amp; Feast">
+            </a>
+            <button class="ff-mobile-menu-close">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <nav class="ff-mobile-nav">
+            <a href="/freeze-feast/dashboard" class="ff-mobile-nav-link">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </a>
+            <a href="product-list.html" class="ff-mobile-nav-link">
+                <i class="fa-solid fa-th-large"></i>
+                <span>Category</span>
+            </a>
+            <a href="about.html" class="ff-mobile-nav-link">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>About</span>
+            </a>
+            <a href="contact.html" class="ff-mobile-nav-link">
+                <i class="fa-solid fa-envelope"></i>
+                <span>Contact</span>
+            </a>
+            <a href="cart.html" class="ff-mobile-nav-link">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span>Cart</span>
+            </a>
+        </nav>
+        <div class="ff-mobile-menu-divider"></div>
+        <div class="ff-mobile-user-section" id="mobileUserSection">
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="ff-header">
+        <div class="container">
+            <div class="ff-header-wrapper">
+                <!-- Logo -->
+                <a href="index.html" class="ff-logo">
+                    <img src="../../../../assets/images/logo.svg" alt="Freeze & Feast">
+                </a>
+
+                <!-- Navigation -->
+                <nav class="ff-nav d-none d-lg-flex">
+                    <a href="/freeze-feast/dashboard" class="ff-nav-link">Home</a>
+                    <a href="/freeze-feast/product-list" class="ff-nav-link">Category</a>
+                    <a href="/freeze-feast/about" class="ff-nav-link active">About</a>
+                    <a href="contact.html" class="ff-nav-link">Contact</a>
+                </nav>
+
+                <!-- User & Cart -->
+                <div class="ff-header-right">
+                    <!-- User Menu (Before Login) -->
+                    <a href="/freeze-feast/login" class="ff-login-link" id="loginLink">
+                        <button class="ff-user-btn">
+                            <i class="fa-regular fa-user"></i>
+                        </button>
+                    </a>
+                    
+                    <!-- User Menu (After Login) -->
+                    <div class="ff-user-dropdown" id="userDropdown">
+                        <button class="ff-user-btn ff-user-logged" id="userBtn">
+                            <i class="fa-solid fa-user"></i>
+                        </button>
+                        <div class="ff-dropdown-menu" id="dropdownMenu">
+                            <a href="profile.html" class="ff-dropdown-item active">
+                                <i class="fa-solid fa-user"></i>
+                                <span>Profile</span>
+                            </a>
+                            <a href="my-orders.html" class="ff-dropdown-item">
+                                <i class="fa-solid fa-box"></i>
+                                <span>My Orders</span>
+                            </a>
+                            <a href="shipping-address.html" class="ff-dropdown-item">
+                                <i class="fa-solid fa-truck-fast"></i>
+                                <span>Shipping Address</span>
+                            </a>
+                            <a href="change-password.html" class="ff-dropdown-item">
+                                <i class="fa-solid fa-lock"></i>
+                                <span>Change Password</span>
+                            </a>
+                            <div class="ff-dropdown-divider"></div>
+                            <button class="ff-logout-btn" id="logoutBtn">
+                                <span>Logout</span>
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <a href="cart.html">
+                        <button class="ff-cart-btn">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span class="ff-cart-count">0</span>
+                        </button>
+                    </a>
+                    <button class="ff-mobile-toggle d-lg-none">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>

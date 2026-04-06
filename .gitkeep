@@ -1,0 +1,60 @@
+//...............NOTES..................
+
+//...........app.use("/public", express.static(path.join(process.cwd(), "public")));............
+
+// Whenever a request starts with /public, run this middleware.
+// express.static() is a built-in middleware in Express.
+// Serve static files (HTML, CSS, JS, images, PDFs, etc.)
+
+//The current working directory (your project root folder) -> process.cwd
+// path.join(...) => /home/ritesh/my-project/public
+
+//app.set()
+// It does NOT run on every request.
+// It just stores values inside Express.
+
+//To configure Knex.js, you need 4 main steps:
+//1. npm i Knex
+//2. npm knex init
+//3. for mysql
+// knexfile.js
+
+export default {
+  development: {
+    client: "mysql2",
+    connection: {
+      host: "127.0.0.1",
+      user: "root",
+      password: "",
+      database: "test_db",
+    },
+    migrations: {
+      directory: "./migrations",
+    },
+    seeds: {
+      directory: "./seeds",
+    },
+  },
+};
+
+//4.create knex_data folder under which migration and seeds will be there.
+
+//🔹 What is a Session?
+// A session stores user data on the server so that the user remains logged in across multiple requests/pages.
+//When a user logs in successfully, you store some information in req.session.
+
+//🔹 Example Flow
+
+//1️⃣ User logs in
+//2️⃣ Server verifies email & password
+//3️⃣ Session is created
+
+Session;
+{
+  userId: 5;
+  role: "admin";
+}
+
+//4️⃣ Browser receives session cookie
+
+//5️⃣ Every request will automatically send that cookie.
