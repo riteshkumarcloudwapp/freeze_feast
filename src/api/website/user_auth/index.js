@@ -1,5 +1,5 @@
 import express from "express";
-import { userLogin, dashboard, registerUser } from "./controller.js";
+import { userLogin, dashboard, registerUser, forgetPassword } from "./controller.js";
 
 const router = express.Router();
 
@@ -11,5 +11,8 @@ router.post("/login", userLogin);
 //register
 router.get("/register", registerUser);
 router.post("/register", registerUser);
+//forget
+router.get("/forgot",forgetPassword);
+router.post("/forgot",forgetPassword);
 
 export { router };

@@ -1,0 +1,60 @@
+<%- include('../partials/header.ejs') %>
+
+    <!-- Forgot Password Section -->
+    <section class="ff-login-section">
+        <div class="login-container">
+
+            <!-- Header -->
+            <div class="login-header">
+                <h1 class="login-title">Forgot Password</h1>
+                <p class="login-subtitle">Enter your email address and we'll send you a link to reset your password</p>
+            </div>
+
+            <!-- Forgot Password Form -->
+         
+            <form action="/freeze-feast/forgot" method="post" class="login-form" id="forgotPasswordForm">
+                <!-- Email Field -->
+
+                <div class="form-floating-group">
+                    <label for="email">Email Address</label>
+                    <input type="email"  id="email"  name="email" placeholder="example@gmail.com" required autocomplete="email"
+                    >
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn-login">Send Request</button>
+                
+            </form>
+
+            <!-- Back to Login -->
+            <div class="create-account">
+                <p>Remember your password? <a href="/freeze-feast/login">Back to Login</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Sent Modal -->
+    <div class="modal fade" id="emailSentModal" tabindex="-1" aria-labelledby="emailSentModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Logo -->
+                    <div class="ff-modal-logo">
+                        <img src="../../../../assets/images/logo.svg" alt="Freeze Feast">
+                    </div>
+                    
+                    <!-- Title -->
+                    <h3 class="ff-modal-title">Email Sent</h3>
+                    
+                    <!-- Message -->
+                    <p class="ff-modal-message">We emailed you a link to Reset your password.</p>
+                    
+                    <!-- Back to Login Button -->
+                    <a href="/freeze-feast/login" class="ff-modal-btn">Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+<%- include('../partials/footer.ejs') %>

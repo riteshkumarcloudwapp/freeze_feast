@@ -1,0 +1,279 @@
+<%- include('../partials/header.ejs') %>
+
+    <!-- Breadcrumb Banner -->
+    <section class="ff-breadcrumb-banner">
+        <div class="container">
+            <div class="ff-breadcrumb-content">
+                <h1 class="ff-breadcrumb-title">Shopping Cart</h1>
+                <nav class="ff-breadcrumb-nav">
+                    <a href="index.html">Home</a>
+                    <span>/</span>
+                    <span class="current">Cart</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="ff-cart-section">
+        <div class="container">
+            <div class="ff-cart-layout">
+                <!-- Left Column - Cart Items & Options -->
+                <div class="ff-cart-main">
+                    <!-- Cart Items Section -->
+                    <div class="ff-cart-items-card">
+                        <div class="ff-cart-items-header">
+                            <h3><i class="fa-solid fa-shopping-bag"></i> Your Items</h3>
+                            <span class="ff-items-count">3 Items</span>
+                        </div>
+                        
+                        <!-- Cart Item 1 -->
+                        <div class="ff-cart-item">
+                            <div class="ff-cart-item-img">
+                                <img src="../../../../assets/img/home-1/popular-items1.jpg" alt="Turkey Bacon, Egg & Cheese Buttermilk Biscuit">
+                            </div>
+                            <div class="ff-cart-item-details">
+                                <div class="ff-cart-item-info">
+                                    <h4>Turkey Bacon, Egg & Cheese Buttermilk Biscuit</h4>
+                                    <p class="ff-cart-item-variant">Size: Regular | Extra Cheese</p>
+                                </div>
+                                <div class="ff-cart-item-actions">
+                                    <div class="ff-qty-controls">
+                                        <button class="ff-qty-btn minus">−</button>
+                                        <span class="ff-qty-value">1</span>
+                                        <button class="ff-qty-btn plus">+</button>
+                                    </div>
+                                    <span class="ff-cart-item-price">$8.50</span>
+                                    <button class="ff-remove-item">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cart Item 2 -->
+                        <div class="ff-cart-item">
+                            <div class="ff-cart-item-img">
+                                <img src="../../../../assets/img/home-1/popular-items2.jpg" alt="Beef Sausage, Egg & Cheese Muffin">
+                            </div>
+                            <div class="ff-cart-item-details">
+                                <div class="ff-cart-item-info">
+                                    <h4>Beef Sausage, Egg & Cheese Muffin</h4>
+                                    <p class="ff-cart-item-variant">Size: Large</p>
+                                </div>
+                                <div class="ff-cart-item-actions">
+                                    <div class="ff-qty-controls">
+                                        <button class="ff-qty-btn minus">−</button>
+                                        <span class="ff-qty-value">2</span>
+                                        <button class="ff-qty-btn plus">+</button>
+                                    </div>
+                                    <span class="ff-cart-item-price">$14.00</span>
+                                    <button class="ff-remove-item">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cart Item 3 -->
+                        <div class="ff-cart-item">
+                            <div class="ff-cart-item-img">
+                                <img src="../../../../assets/img/home-1/popular-items3.jpg" alt="Cinnamon Roll">
+                            </div>
+                            <div class="ff-cart-item-details">
+                                <div class="ff-cart-item-info">
+                                    <h4>Cinnamon Roll with Cream Cheese Frosting</h4>
+                                    <p class="ff-cart-item-variant">Freshly Baked</p>
+                                </div>
+                                <div class="ff-cart-item-actions">
+                                    <div class="ff-qty-controls">
+                                        <button class="ff-qty-btn minus">−</button>
+                                        <span class="ff-qty-value">1</span>
+                                        <button class="ff-qty-btn plus">+</button>
+                                    </div>
+                                    <span class="ff-cart-item-price">$4.50</span>
+                                    <button class="ff-remove-item">
+                                        <i class="fa-regular fa-trash-can"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Address -->
+                    <div class="ff-cart-card">
+                        <div class="ff-cart-card-header">
+                            <h3><i class="fa-solid fa-location-dot"></i> Delivery Address</h3>
+                            <button class="ff-edit-btn">Change</button>
+                        </div>
+                        <div class="ff-address-info">
+                            <div class="ff-address-icon">
+                                <i class="fa-solid fa-house"></i>
+                            </div>
+                            <div class="ff-address-details">
+                                <h4>Lucian Obrien</h4>
+                                <p>1147 Rohan Drive Suite 819 - Burlington, VT / 82021</p>
+                                <p class="ff-address-phone"><i class="fa-solid fa-phone"></i> 904-966-2836</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Section -->
+                    <div class="ff-cart-card">
+                        <div class="ff-cart-card-header break-data">
+                            <h3><i class="fa-solid fa-truck-fast"></i> Delivery</h3>
+                            <p class="ff-delivery-subtitle">Select how you would like to receive your order.</p>
+                        </div>
+                        
+                        <!-- Delivery Type Tabs -->
+                        <div class="ff-delivery-tabs">
+                            <button class="ff-delivery-tab active" data-tab="ship">
+                                <i class="fa-solid fa-truck"></i>
+                                <span>Ship</span>
+                            </button>
+                            <button class="ff-delivery-tab" data-tab="pickup">
+                                <i class="fa-solid fa-box-open"></i>
+                                <span>Free Pickup</span>
+                            </button>
+                        </div>
+
+                        <!-- Ship Options -->
+                        <div class="ff-delivery-content" id="shipContent">
+                            <h4 class="ff-shipping-title">Shipping</h4>
+                            <div class="ff-shipping-options">
+                                <label class="ff-shipping-option">
+                                    <input type="radio" name="shipping" value="delivery-fee" checked>
+                                    <span class="ff-radio-custom"></span>
+                                    <span class="ff-shipping-label">Delivery Fee: $4.00</span>
+                                </label>
+                                <label class="ff-shipping-option">
+                                    <input type="radio" name="shipping" value="dolega-david">
+                                    <span class="ff-radio-custom"></span>
+                                    <span class="ff-shipping-label">Dolega to David: $6.50</span>
+                                </label>
+                                <label class="ff-shipping-option">
+                                    <input type="radio" name="shipping" value="anywhere-panama">
+                                    <span class="ff-radio-custom"></span>
+                                    <span class="ff-shipping-label">Shipping Anywhere in Panama: $10.00</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Free Pickup Options -->
+                        <div class="ff-delivery-content" id="pickupContent" style="display: none;">
+                            <h4 class="ff-shipping-title">Shipping</h4>
+                            <div class="ff-shipping-options">
+                                <label class="ff-shipping-option">
+                                    <input type="radio" name="pickup" value="tapout-tuesday" checked>
+                                    <span class="ff-radio-custom"></span>
+                                    <span class="ff-shipping-label">Free Pickup (TapOut Tuesday Market - 9am to 12pm)</span>
+                                </label>
+                                <label class="ff-shipping-option">
+                                    <input type="radio" name="pickup" value="microserv-panama">
+                                    <span class="ff-radio-custom"></span>
+                                    <span class="ff-shipping-label">Free Pickup (MicroServ Panama Monday, Wednesday, Thursday and Friday 8am to 4pm - In the notes let us know what day you would like your order!)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Order Summary -->
+                <div class="ff-cart-sidebar">
+                    <!-- Order Summary -->
+                    <div class="ff-cart-card ff-summary-card">
+                        <div class="ff-summary-body">
+                            <div class="ff-summary-row">
+                                <span>Subtotal</span>
+                                <span class="ff-summary-value">$5.79</span>
+                            </div>
+                            <div class="ff-summary-row">
+                                <span>Discount</span>
+                                <span class="ff-summary-value">-</span>
+                            </div>
+                            <div class="ff-summary-row">
+                                <span>Shipping</span>
+                                <span class="ff-summary-value">-</span>
+                            </div>
+                            <div class="ff-summary-divider"></div>
+                            <div class="ff-summary-total-row">
+                                <span>Total</span>
+                                <div class="ff-total-amount">
+                                    <span class="ff-total-price">$62.02</span>
+                                </div>
+                            </div>
+                            <p class="ff-vat-note">(VAT included if applicable)</p>
+                        </div>
+                    </div>
+
+                    <!-- Discount Code -->
+                    <div class="ff-cart-card ff-discount-card">
+                        <div class="ff-discount-input-wrapper">
+                            <input type="text" placeholder="Discount codes / Gifts" class="ff-discount-input">
+                            <button class="ff-apply-btn">Apply</button>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="ff-cart-card">
+                        <div class="ff-cart-card-header">
+                            <h3><i class="fa-solid fa-credit-card"></i> Payment Method</h3>
+                        </div>
+                        <div class="ff-payment-options">
+                            <label class="ff-payment-option active">
+                                <input type="radio" name="payment" value="card" checked>
+                                <div class="ff-payment-content">
+                                    <div class="ff-payment-icons">
+                                        <i class="fa-brands fa-cc-visa"></i>
+                                    </div>
+                                    <span>Pay Online</span>
+                                </div>
+                            </label>
+                            <label class="ff-payment-option">
+                                <input type="radio" name="payment" value="cod">
+                                <div class="ff-payment-content">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                    <span>Cash on Delivery</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sticky Checkout Bar -->
+    <div class="ff-checkout-bar">
+        <div class="ff-checkout-bar-content">
+            <div class="ff-checkout-bar-info">
+                <span class="ff-checkout-bar-label">Pay Now</span>
+                <span class="ff-checkout-bar-price">£66.02</span>
+            </div>
+            <button class="ff-checkout-bar-btn" data-bs-toggle="modal" data-bs-target="#orderSuccessModal">Checkout</button>
+        </div>
+    </div>
+
+    <!-- Order Success Modal -->
+    <div class="modal fade ff-order-success-modal" id="orderSuccessModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="ff-success-modal-content">
+                        <div class="ff-success-logo">
+                            <img src="../../../../assets/images/logo.svg" alt="Freeze & Feast">
+                        </div>
+                        <h2 class="ff-success-title">Order Placed Successfully</h2>
+                        <p class="ff-success-message">
+                            Your order has been placed successfully.<br>
+                            We'll notify you once it's on the way.<br>
+                            Thank you for ordering with us!
+                        </p>
+                        <a href="index.html" class="ff-success-btn">Back to home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include('../partials/footer.ejs') %>

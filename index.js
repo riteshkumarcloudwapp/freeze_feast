@@ -19,6 +19,9 @@ app.use("/assets", express.static(path.join(process.cwd(), "assets")));
 app.set("view engine", "ejs");
 app.set("views", path.join(process.cwd(), "src/views"));
 
+//template config
+app.use("/templates", express.static(path.join(process.cwd(), "src/templates")));
+
 //session config
 app.use(
   session({

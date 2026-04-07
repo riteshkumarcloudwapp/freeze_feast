@@ -1,7 +1,9 @@
 import Joi from "joi";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 import models from "../../../models/index.js";
 import session from "express-session";
+import sendEmailSMTP from "../../../utils/emailService.js";
 
 //website dashboard
 export const dashboard = async (req, res) => {
@@ -17,7 +19,7 @@ export const userLogin = async (req, res) => {
     if (req.method === "POST") {
       const { email, password } = req.body;
       const validation = Joi.object({
-        email: Joi.string().trim().lowercase().email().required(),
+        email: Joi.string().trim().lowercase() .pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/).required(),
         password: Joi.string().min(8).required(),
       });
       const { error } = validation.validate(req.body);
@@ -29,7 +31,7 @@ export const userLogin = async (req, res) => {
       });
       if (!existedUser) {
         req.flash("error", "User not registered");
-        return res.render("/freeze-feast/register");
+        return res.redirect("/freeze-feast/register");
       }
       //check for password
       const checkPassword = await bcrypt.compare(
@@ -48,9 +50,10 @@ export const userLogin = async (req, res) => {
       req.flash("success", "Login successful");
       return res.redirect("/freeze-feast/dashboard");
     }
+
     return res.render("website/pages/login");
   } catch (error) {
-    console.error(error);
+    console.error("Login user API error:",error.message);
     req.flash("error", "Something went wrong");
     return res.redirect("/freeze-feast/login");
   }
@@ -65,7 +68,7 @@ export const registerUser = async (req, res) => {
       //validation
       const validation = Joi.object({
         fullName: Joi.string().trim().required(),
-        email: Joi.string().trim().lowercase().email().required(),
+        email: Joi.string().trim().lowercase().pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/).required(),
         password: Joi.string().min(8).required(),
         confirmPassword: Joi.string()
           .valid(Joi.ref("password"))
@@ -100,10 +103,32 @@ export const registerUser = async (req, res) => {
       req.flash("success", "User registered successfully");
       return res.redirect("/freeze-feast/login");
     }
-    return res.render("website/pages/register");
+
+    return res.render("website/pages/register", {
+      error: req.flash("error"),
+      success: req.flash("success")
+    });
   } catch (error) {
-    console.error(error);
+    console.error("Register User API:",error.message);
     req.flash("error", "Something went wrong");
     return res.redirect("/freeze-feast/register");
   }
 };
+
+//forget password
+export const forgetPassword = async (req,res)=>{
+  try {
+
+  if(req.method === "POST"){
+   const {email} = req.body;
+   console.log(email);
+}
+return res.render("website/pages/forgot");
+    
+    
+  } catch (error) {
+    console.log("forgetPassword error", error);
+    req.flash("error", "Something went wrong");
+    return res.redirect("/freeze-feast/forgot");
+  }
+}

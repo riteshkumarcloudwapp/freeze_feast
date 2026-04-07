@@ -4,6 +4,19 @@
     <section class="ff-register-section">
         <div class="register-container">
 
+            <!-- FLASH MESSAGE HERE -->
+            <% if (error && error.length > 0) { %>
+                <div class="alert alert-danger">
+                    <%= error[0] %>
+                </div>
+            <% } %>
+
+            <% if (success && success.length > 0) { %>
+                <div class="alert alert-success">
+                    <%= success[0] %>
+                </div>
+            <% } %>
+
             <!-- Header -->
             <div class="register-header">
                 <h1 class="register-title">Register</h1>

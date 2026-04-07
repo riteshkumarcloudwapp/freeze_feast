@@ -1,23 +1,17 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
 export function up(knex) {
   return knex.schema.createTable("users", (table) => {
-    table.increments("id").primary();
-    table.string("fullName", 255).notNullable();
-    table.string("email", 255).unique().notNullable();
-    table.string("password", 255).notNullable();
-    table.string("role").notNullable().defaultTo("user");
-    table.boolean("status").notNullable().defaultTo(true);
+    table.uuid("id").primary();
+
+    table.string("fullName", 255).nullable();
+    table.string("email", 255).unique().nullable();
+    table.string("password", 255).nullable();
+    table.string("role").nullable().defaultTo("user");
+    table.boolean("is_active").nullable().defaultTo(false);
+
     table.timestamps(true, true);
   });
 }
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
 export function down(knex) {
   return knex.schema.dropTable("users");
 }

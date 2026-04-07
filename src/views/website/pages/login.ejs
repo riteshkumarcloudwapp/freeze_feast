@@ -4,6 +4,20 @@
     <section class="ff-login-section">
         <div class="login-container">
 
+
+              <!-- FLASH MESSAGE HERE -->
+    <% if (error && error.length > 0) { %>
+        <div class="alert alert-danger">
+            <%= error[0] %>
+        </div>
+    <% } %>
+
+    <% if (success && success.length > 0) { %>
+        <div class="alert alert-success">
+            <%= success[0] %>
+        </div>
+    <% } %>
+
             <!-- Header -->
             <div class="login-header">
                 <h1 class="login-title">Welcome Back</h1>
@@ -43,7 +57,7 @@
 
                 <!-- Forgot Password -->
                 <div class="forgot-password">
-                    <a href="forgot.html">Forgot password?</a>
+                    <a href="/freeze-feast/forgot">Forgot password?</a>
                 </div>
 
                 <!-- Submit Button -->

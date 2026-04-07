@@ -58,3 +58,16 @@ Session;
 //4️⃣ Browser receives session cookie
 
 //5️⃣ Every request will automatically send that cookie.
+
+
+//hbs
+//Handlebars are template engine for nodejs.
+It helps you generate dynamic HTML pages using backend data.
+
+Instead of writing static HTML like:
+
+<h1>Hello User</h1>
+
+You can make it dynamic:
+
+<h1>Hello {{name}}</h1>
