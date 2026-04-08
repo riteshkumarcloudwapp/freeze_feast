@@ -12,7 +12,8 @@
 
             <!-- Forgot Password Form -->
          
-            <form action="/freeze-feast/forgot" method="post" class="login-form" id="forgotPasswordForm">
+            <!-- <form action="/freeze-feast/forgot" method="post" class="login-form" id="forgotPasswordForm"> -->
+                <form action="/freeze-feast/forgot" method="POST" onsubmit="console.log('FORM SUBMITTED')">
                 <!-- Email Field -->
 
                 <div class="form-floating-group">
@@ -23,6 +24,11 @@
 
                 <!-- Submit Button -->
                 <button type="submit" class="btn-login">Send Request</button>
+
+                <!-- <button type="submit" class="btn-login" onclick="console.log('FORM SUBMIT CLICKED')">
+                Send Request
+                </button> -->
+
                 
             </form>
 

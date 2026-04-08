@@ -37,7 +37,7 @@ const sendEmailSMTP = async (to, subject, templateName, templateData) => {
         console.log("SMTP connection verified successfully");
 
         const mailOptions = {
-            from: `"Property Listing" <${process.env.EMAIL_USER}>`,
+            from: `"Freeze Feast" <${process.env.EMAIL_USER}>`,
             to,
             subject,
             html,

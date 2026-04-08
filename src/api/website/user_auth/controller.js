@@ -116,19 +116,64 @@ export const registerUser = async (req, res) => {
 };
 
 //forget password
-export const forgetPassword = async (req,res)=>{
+export const forgetPassword = async (req, res) => {
   try {
+    if (req.method === "POST") {
+      const { email } = req.body;
 
-  if(req.method === "POST"){
-   const {email} = req.body;
-   console.log(email);
-}
-return res.render("website/pages/forgot");
+      const user = await models.User.findOne({ where: { email } });
+
+      if (!user) {
+        req.flash("error", "User not found");
+        return res.redirect("/freeze-feast/forgot");
+      }
+
+    const token = jwt.sign(
+      {id : user.id, role: user.role},
+     process.env.JWT_SECRET,
+      {expiresIn: '5m'}
+    );
+
     
-    
+      const resetLink = `http://localhost:4004/freeze-feast/resetPassword?token=${token}`;
+      console.log("Reset Link:", resetLink);
+
+      //Send Email
+      await sendEmailSMTP(
+        email,
+        "Reset Password",
+        "forgetPassword",   // template name
+        {
+        name: user.fullName,
+        resetLink,
+        year: new Date().getFullYear(),
+        }    
+      );
+
+      req.flash("success", "Reset link sent to your email");
+      return res.redirect("/freeze-feast/login");
+    }
+
+    return res.render("website/pages/forgot", {
+      error: req.flash("error"),
+      success: req.flash("success"),
+    });
+
   } catch (error) {
-    console.log("forgetPassword error", error);
+    console.log(error);
     req.flash("error", "Something went wrong");
     return res.redirect("/freeze-feast/forgot");
   }
+};
+
+//reset password
+export const resetPassword = async (req,res) => {
+  try {
+    
+  } catch (error) {
+    console.log("resetPassword error:",error);
+    req.flash("error","Something went wrong");
+    return res.redirect("/freeze-feast/resetPassword")
+  }
+  
 }
