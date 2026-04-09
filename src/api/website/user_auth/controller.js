@@ -135,7 +135,7 @@ export const forgetPassword = async (req, res) => {
     );
 
     
-      const resetLink = `http://localhost:4004/freeze-feast/resetPassword?token=${token}`;
+     const resetLink = `http://localhost:4004/freeze-feast/change-password?token=${token}`;
       console.log("Reset Link:", resetLink);
 
       //Send Email
@@ -167,13 +167,65 @@ export const forgetPassword = async (req, res) => {
 };
 
 //reset password
-export const resetPassword = async (req,res) => {
+export const changePassword = async (req,res) => {
   try {
+
+    const {token} = req.params;
+    const {newPassword, confirmPassword} = req.body;
+
+    const validation = Joi.object({
+      newPassword: Joi.string()
+                      .min(8)
+                      .required(),
+
+      confirmPassword: Joi.string()
+                          .required()
+                          .valid(Joi.ref('newPassword'))
+                          .messages({
+                          "any.only": "Passwords do not match",
+                          "string.empty": "Confirm password is required"
+                        })
+
+     })
+
+    const {error} = validation.validate(req.body);
+    if (error) {
+      req.flash("error", error.details[0].message);
+      return res.redirect("back");
+    }
+
+    // get token and decode it.
+    const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+
+    if(!decodedToken){
+       req.flash("error", "Invalid or expired token");
+       return res.redirect("/freeze-feast/login");
+    }
+
+   //Fetch user from token
+    const user = await models.User.findOne({
+      where: { id: decodedToken.id },
+    });
+
+    if(!user){
+      req.flash("error","User not found");
+      return res.redirect("/freeze-feast/register");
+    }
+
+    //hashed password
+    const hashedPassword = await bcrypt.hash(newPassword,8);
+
+    user.password = hashedPassword;
+    await user.save();
+
+    //response
+    req.flash("success", "Password changed successfully");
+    return res.redirect("/freeze-feast/login");
     
   } catch (error) {
     console.log("resetPassword error:",error);
     req.flash("error","Something went wrong");
-    return res.redirect("/freeze-feast/resetPassword")
+    return res.redirect("/freeze-feast/change-password")
   }
   
 }

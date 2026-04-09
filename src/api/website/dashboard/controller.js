@@ -1,3 +1,14 @@
+//home
+export const home = async (req, res) => {
+  try {
+    return res.render("website/index");
+  } catch (error) {
+    console.log("home error",error.message);
+    req.flash("error", "Something went wrong");
+    return res.redirect("/freeze-feast/dashboard");
+  }
+};
+
 //category
 export const category = async (req, res) => {
   try {
@@ -34,10 +45,10 @@ export const contact = async (req, res) => {
 //cart
 export const cart = async (req,res) => {
   try {
-      return res.render("website/pages/cart");
+     return res.render("website/pages/cart");
   } catch (error) {
     console.log("cart error",error.message);
-    req.flash("error","cart error");
+    req.flash("error","Something went wrong");
     return res.redirect("/freeze-feast/dashboard");
   }
   
