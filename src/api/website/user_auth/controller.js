@@ -44,8 +44,18 @@ export const userLogin = async (req, res) => {
       }
 
       //Create session
-      req.session.userId = existedUser.id;
-      req.session.role = existedUser.role;
+      // req.session.userId = existedUser.id;
+      // req.session.role = existedUser.role;
+      req.session.user = {
+        id: user.id,
+        email: user.email,
+        role: user.role 
+      }
+
+      // Role ke hisaab se redirect karo
+      if (user.role === "admin") {
+      return res.redirect("/freeze-feast/admin/dashboard");
+      }
 
       req.flash("success", "Login successful");
       return res.redirect("/freeze-feast/dashboard");

@@ -5,6 +5,7 @@ import { Sequelize } from "sequelize";
 import { sequelize } from "../config/database.js";
 
 import User from "./User.js";
+import Contact from "./Contact.js"
 
 // No need to recreate the Sequelize instance here; use the one
 // already configured above.
@@ -14,6 +15,7 @@ import User from "./User.js";
 
 const models = {
   User,
+  Contact,
 };
 
 // Setup associations

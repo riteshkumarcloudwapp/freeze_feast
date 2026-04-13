@@ -10,6 +10,7 @@ router.get("/product-list", category);
 router.get("/about", about);
 
 router.get("/contact", contact);
+router.post("/contact",contact);
 
 router.get("/cart.html", cart);
 

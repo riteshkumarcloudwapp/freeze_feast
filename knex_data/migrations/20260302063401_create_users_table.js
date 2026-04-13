@@ -5,7 +5,7 @@ export function up(knex) {
     table.string("fullName", 255).nullable();
     table.string("email", 255).unique().nullable();
     table.string("password", 255).nullable();
-    table.string("role").nullable().defaultTo("user");
+    table.enum("role", ["admin", "user"]).nullable();
     table.boolean("is_active").nullable().defaultTo(false);
 
     table.timestamps(true, true);

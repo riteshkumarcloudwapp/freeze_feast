@@ -1,8 +1,8 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../config/database.js";
 
-const User = sequelize.define(
-  "User",
+const Contact = sequelize.define(
+  "Contact",
   {
     id: {
       type: DataTypes.UUID,
@@ -10,7 +10,7 @@ const User = sequelize.define(
       primaryKey: true,
     },
 
-    fullName: {
+    name: {
       type: DataTypes.STRING(255),
       allowNull: true,
     },
@@ -18,34 +18,44 @@ const User = sequelize.define(
     email: {
       type: DataTypes.STRING(255),
       allowNull: true,
-      unique: true,
       validate: {
         isEmail: true,
       },
     },
 
-    password: {
-      type: DataTypes.STRING(255),
+    phone_number: {
+      type: DataTypes.STRING(20),
       allowNull: true,
     },
 
-    role: {
-      type: DataTypes.ENUM("admin", "user"),
+    subject: {
+      type: DataTypes.TEXT,
       allowNull: true,
+    },
+
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+
+    status: {
+      type: DataTypes.ENUM("pending", "resolved", "rejected"),
+      allowNull: false,
+      defaultValue: "pending",
     },
 
     is_active: {
       type: DataTypes.BOOLEAN,
-      allowNull: true,
+      allowNull: false,
       defaultValue: false,
     },
   },
   {
-    tableName: "users",
-    timestamps: true, // createdAt & updatedAt
+    tableName: "contacts",
+    timestamps: true, // enables createdAt & updatedAt
     createdAt: "created_at",
     updatedAt: "updated_at",
-  },
+  }
 );
 
-export default User;
+export default Contact;
