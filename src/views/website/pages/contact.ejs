@@ -1,16 +1,6 @@
 <%- include('../partials/header.ejs') %>
 
-<% if (error.length > 0) { %>
-  <div class="alert alert-danger">
-    <%= error[0] %>
-  </div>
-<% } %>
-
-<% if (success.length > 0) { %>
-  <div class="alert alert-success">
-    <%= success[0] %>
-  </div>
-<% } %>
+<%- include('../partials/flash.ejs') %>
 
     <!-- Contact Section -->
     <section class="ff-contact-section">

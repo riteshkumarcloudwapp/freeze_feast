@@ -71,3 +71,21 @@ Instead of writing static HTML like:
 You can make it dynamic:
 
 <h1>Hello {{name}}</h1>
+
+
+
+FLASH
+// Success example
+req.flash("success", "Login successful! Welcome back.");
+res.redirect("/freeze-feast/dashboard");
+
+// Error example
+req.flash("error", "Invalid credentials. Try again.");
+res.redirect("/freeze-feast/login");
+
+// Info / Warning
+req.flash("info", "Your session will expire soon.");
+req.flash("warning", "Please verify your email.");
+res.redirect("/somewhere");
+
+Key rule: Always redirect after setting flash — never render. Flash reads on the next request, so render won't show it.

@@ -1,38 +1,6 @@
 import Joi from "joi";
 import models from "../../../models/index.js";
 
-//home
-export const home = async (req, res) => {
-  try {
-    return res.render("website/index");
-  } catch (error) {
-    console.log("home error",error.message);
-    req.flash("error", "Something went wrong");
-    return res.redirect("/freeze-feast/dashboard");
-  }
-};
-
-//category
-export const category = async (req, res) => {
-  try {
-    return res.render("website/pages/product-list");
-  } catch (error) {
-    console.log("category error",error.message);
-    req.flash("error", "Something went wrong");
-    return res.redirect("/freeze-feast/category");
-  }
-};
-
-//About
-export const about = async (req, res) => {
-  try {
-    return res.render("website/pages/about");
-  } catch (error) {
-    console.log("About error",error.message);
-    req.flash("error", "Something went wrong");
-    return res.redirect("/freeze-feast/about");
-  }
-};
 
 //contact
 export const contact = async (req, res) => {
@@ -42,7 +10,7 @@ export const contact = async (req, res) => {
     if (req.method === "POST") {
 
       
-      console.log("POST HIT ✅");
+      console.log("POST HIT");
       console.log("BODY:", req.body);
 
       const { name, email, phone_number, subject, description } = req.body;
@@ -73,7 +41,7 @@ export const contact = async (req, res) => {
         description,
       });
 
-      req.flash("success", "Contact created successfully");
+      req.flash("success", "Message sent successfully!");
       return res.redirect("/freeze-feast/contact");
     }
 
@@ -85,17 +53,3 @@ export const contact = async (req, res) => {
     return res.redirect("/freeze-feast/contact");
   }
 };
-
-
-//cart
-export const cart = async (req,res) => {
-  try {
-     return res.render("website/pages/cart");
-  } catch (error) {
-    console.log("cart error",error.message);
-    req.flash("error","Something went wrong");
-    return res.redirect("/freeze-feast/cart");
-  }
-  
-}
-

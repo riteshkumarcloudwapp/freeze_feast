@@ -6,6 +6,7 @@ import cors from "cors";
 import path from "path";
 import session from "express-session";
 import flash from "connect-flash";
+import flashMessages from "./src/common/middleware/flashMessages.js";
 
 const app = express();
 
@@ -37,12 +38,15 @@ app.use(
 );
 
 //connect flash config
+// app.use(flash());
+// app.use((req, res, next) => {
+//   res.locals.success = req.flash("success");
+//   res.locals.error = req.flash("error");
+//   next();
+// });
 app.use(flash());
-app.use((req, res, next) => {
-  res.locals.success = req.flash("success");
-  res.locals.error = req.flash("error");
-  next();
-});
+app.use(flashMessages);
+
 
 //database connection
 try {
@@ -57,20 +61,38 @@ app.get("/", (req, res) => {
   res.json({ message: "Hello from server" });
 });
 
+
 //..................WEBSITE ROUTE................................
 
-//Homepage
-app.get("/freeze-feast", (req, res) => {
-  res.render("website/index");
-});
+//dashboard
+import { router as homeRoutes } from "./src/api/website/home/index.js";
+app.use("/freeze-feast", homeRoutes);
+
+//category
+import {router as categoryRoutes} from "./src/api/website/category/index.js"
+app.use("/freeze-feast", categoryRoutes);
+
+//about
+import {router as aboutRoutes} from "./src/api/website/about/index.js"
+app.use("/freeze-feast",aboutRoutes);
+
+//contact
+import {router as contactRoutes} from "./src/api/website/contact/index.js"
+app.use("/freeze-feast",contactRoutes);
+
+//cart
+import {router as cartRoutes} from "./src/api/website/cart/index.js"
+app.use("/freeze-feast",cartRoutes);
 
 //user_auth
 import { router as websiteRoutes } from "./src/api/website/user_auth/index.js";
 app.use("/freeze-feast", websiteRoutes);
 
-//dashboard
-import { router as dashboardRoutes } from "./src/api/website/dashboard/index.js";
-app.use("/freeze-feast", dashboardRoutes);
+
+
+
+
+
 
 app.listen(config.PORT, (req, res) => {
   console.log(`Server listening on: http://${config.HOST}:${config.PORT}`);

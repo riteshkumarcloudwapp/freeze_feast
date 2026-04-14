@@ -1,0 +1,23 @@
+<% if (success && success.length > 0) { %>
+  <div class="alert alert-success">
+    <%= success[0] %>
+  </div>
+<% } %>
+
+<% if (error && error.length > 0) { %>
+  <div class="alert alert-danger">
+    <%= error[0] %>
+  </div>
+<% } %>
+
+<% if (info && info.length > 0) { %>
+  <div class="alert alert-info">
+    <%= info[0] %>
+  </div>
+<% } %>
+
+<% if (warning && warning.length > 0) { %>
+  <div class="alert alert-warning">
+    <%= warning[0] %>
+  </div>
+<% } %>
