@@ -1,11 +1,13 @@
 
-
 const flashMessages = (req, res, next) => {
-  // Har EJS template mein automatically available ho jayega
-  res.locals.success = req.flash("success");
-  res.locals.error   = req.flash("error");
-  res.locals.info    = req.flash("info");
-  res.locals.warning = req.flash("warning");
+  res.locals.success     = req.flash("success");
+  res.locals.error       = req.flash("error");
+  res.locals.info        = req.flash("info");
+  res.locals.warning     = req.flash("warning");
+  
+  // Add this one line
+  res.locals.currentUser = req.session.user || null;
+  
   next();
 };
 

@@ -6,17 +6,24 @@
 
 
               <!-- FLASH MESSAGE HERE -->
-    <% if (error && error.length > 0) { %>
-        <div class="alert alert-danger">
-            <%= error[0] %>
-        </div>
-    <% } %>
+  <% if (success && success.length > 0) { %>
+  <div class="alert alert-success" id="flashMsg">
+    <%= success[0] %>
+  </div>
+<% } %>
 
-    <% if (success && success.length > 0) { %>
-        <div class="alert alert-success">
-            <%= success[0] %>
-        </div>
-    <% } %>
+<% if (error && error.length > 0) { %>
+  <div class="alert alert-danger" id="flashMsg">
+    <%= error[0] %>
+  </div>
+<% } %>
+
+<script>
+  setTimeout(() => {
+    const msg = document.getElementById("flashMsg");
+    if (msg) msg.style.display = "none";
+  }, 3000); // Hides after 3 seconds
+</script>
 
             <!-- Header -->
             <div class="login-header">
@@ -70,5 +77,10 @@
             </div>
         </div>
     </section>
+
+
+<script>
+  sessionStorage.setItem("justLoggedIn", "true");
+</script>
 
 <%- include('../partials/footer.ejs') %>

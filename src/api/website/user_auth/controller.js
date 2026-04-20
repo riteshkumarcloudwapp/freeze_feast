@@ -47,18 +47,18 @@ export const userLogin = async (req, res) => {
       // req.session.userId = existedUser.id;
       // req.session.role = existedUser.role;
       req.session.user = {
-        id: user.id,
-        email: user.email,
-        role: user.role 
+        id: existedUser.id,
+        email: existedUser.email,
+        role: existedUser.role 
       }
 
       // Role ke hisaab se redirect karo
-      if (user.role === "admin") {
+      if (existedUser.role === "admin") {
       return res.redirect("/freeze-feast/admin/dashboard");
       }
 
       req.flash("success", "Login successful");
-      return res.redirect("/freeze-feast/dashboard");
+      return res.redirect("/freeze-feast");
     }
 
     return res.render("website/pages/login");
@@ -108,6 +108,7 @@ export const registerUser = async (req, res) => {
         fullName,
         email,
         password: hashedPassword,
+        role: "user" 
       });
 
       req.flash("success", "User registered successfully");

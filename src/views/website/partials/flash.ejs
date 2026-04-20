@@ -1,23 +1,38 @@
 <% if (success && success.length > 0) { %>
-  <div class="alert alert-success">
+  <div class="alert alert-success flash-msg">
     <%= success[0] %>
   </div>
 <% } %>
 
 <% if (error && error.length > 0) { %>
-  <div class="alert alert-danger">
+  <div class="alert alert-danger flash-msg">
     <%= error[0] %>
   </div>
 <% } %>
 
 <% if (info && info.length > 0) { %>
-  <div class="alert alert-info">
+  <div class="alert alert-info flash-msg">
     <%= info[0] %>
   </div>
 <% } %>
 
 <% if (warning && warning.length > 0) { %>
-  <div class="alert alert-warning">
+  <div class="alert alert-warning flash-msg">
     <%= warning[0] %>
   </div>
 <% } %>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const flashes = document.querySelectorAll(".flash-msg");
+    flashes.forEach(el => {
+      // Auto-hide after 3 seconds
+      setTimeout(() => {
+        el.style.transition = "opacity 0.5s ease";
+        el.style.opacity = "0";
+        setTimeout(() => el.remove(), 500); // remove after fade
+      }, 3000);
+    });
+  });
+</script>
