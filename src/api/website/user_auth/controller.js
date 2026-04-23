@@ -52,6 +52,8 @@ export const userLogin = async (req, res) => {
         role: existedUser.role 
       }
 
+      console.log('token---',req.session.user);
+      
       // Role ke hisaab se redirect karo
       if (existedUser.role === "admin") {
       return res.redirect("/freeze-feast/admin/dashboard");

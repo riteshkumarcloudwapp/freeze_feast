@@ -44,58 +44,40 @@
 
              <!-- User & Cart -->
              <div class="ff-header-right">
-                
-                 <!-- Search Icon -->
-                    <button class="ff-search-icon-btn" id="headerSearchBtn">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </button>
-
+            
              <!-- User Menu (Before Login) -->
 
     <!-- Show LOGIN button if NOT logged in -->
 
-    <% if (!locals.session?.user) { %>
-        <a href="/freeze-feast/login" class="ff-login-link" id="loginLink">
-            <button class="ff-user-btn">
-                <i class="fa-regular fa-user"></i>
-            </button>
-        </a>
-    <% } else { %>
 
-        <!-- Show DROPDOWN if logged in -->
-        <div class="ff-user-dropdown" id="userDropdown">
-            <button class="ff-user-btn ff-user-logged" id="userBtn">
-                <i class="fa-solid fa-user"></i>
-            </button>
-            <div class="ff-dropdown-menu" id="dropdownMenu">
-                <a href="/freeze-feast/profile" class="ff-dropdown-item">
-                    <i class="fa-solid fa-user"></i>
-                    <span>Profile</span>
-                </a>
-                <a href="/freeze-feast/my-orders" class="ff-dropdown-item">
-                    <i class="fa-solid fa-box"></i>
-                    <span>My Orders</span>
-                </a>
-                <a href="/freeze-feast/wishlist" class="ff-dropdown-item">
-                    <i class="fa-solid fa-heart"></i>
-                    <span>My Wishlists</span>
-                </a>
-                <a href="/freeze-feast/shipping-address" class="ff-dropdown-item">
-                    <i class="fa-solid fa-truck-fast"></i>
-                    <span>Shipping Address</span>
-                </a>
-                <a href="/freeze-feast/change-password" class="ff-dropdown-item">
-                    <i class="fa-solid fa-lock"></i>
-                    <span>Change Password</span>
-                </a>
-                <div class="ff-dropdown-divider"></div>
-                <a href="/freeze-feast/logout" class="ff-logout-btn">
-                    <span>Logout</span>
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                </a>
-            </div>
-        </div>
-    <% } %>
+ <% if (session && session.user) { %>
+    <!-- User is logged in → show dropdown -->
+<div class="ff-user-dropdown">   <!-- ← parent wrapper -->
+    <button class="ff-user-btn">
+        <i class="fa-solid fa-user"></i>
+    </button>
+
+    <div class="ff-dropdown-menu" id="dropdownMenu">
+        <a href="/freeze-feast/profile" class="ff-dropdown-item">Profile</a>
+        <a href="/freeze-feast/my-orders" class="ff-dropdown-item">My Orders</a>
+        <a href="/freeze-feast/wishlist" class="ff-dropdown-item">My Wishlists</a>
+        <a href="/freeze-feast/shipping-address" class="ff-dropdown-item">Shipping Address</a>
+        <a href="/freeze-feast/change-password" class="ff-dropdown-item">Change Password</a>
+        <div class="ff-dropdown-divider"></div>
+        <a href="/freeze-feast/logout" class="ff-logout-btn">Logout</a>
+    </div>
+</div>
+
+<% } else { %>
+    <!-- User is NOT logged in → show login icon only -->
+    <a href="/freeze-feast/login">
+        <button class="ff-user-btn">
+            <i class="fa-regular fa-user"></i>
+        </button>
+    </a>
+
+<% } %>
+
 
     <a href="/freeze-feast/cart">
         <button class="ff-cart-btn">
@@ -109,6 +91,7 @@
     </div>
 </div>
 </div>
-</header>
+    </header>
 
-<script src="../../../../assets/js/user-dropdown.js"></script>
+
+<script src="../../../../assets//js/user-dropdown.js"></script>

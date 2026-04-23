@@ -27,4 +27,5 @@ console.log("QUERY TOKEN:", token);
 
 router.post("/change-password/:token",changePassword);
 
+
 export { router };

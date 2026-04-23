@@ -1,0 +1,88 @@
+<%- include('../partials/header.ejs') %>
+
+    <section class="ff-breadcrumb-banner">
+        <div class="container">
+            <div class="ff-breadcrumb-content">
+                <h1 class="ff-breadcrumb-title">My Profile</h1>
+                <nav class="ff-breadcrumb-nav">
+                    <a href="/freeze-feast/">Home</a>
+                    <span>/</span>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <section >
+       <div class="container">
+          <div class="ff-profile-card">
+            <form action="/freeze-feast/profile" method="POST" enctype="multipart/form-data">
+               <input type="hidden" name="_token" value="0ue4o2IATWYyLTLBCUlu9cyWaz2wVmy06JT6r6au" autocomplete="off">  
+
+                  <div class="ff-profile-layout">
+
+                 <!-- Profile Avatar -->
+                <div class="ff-profile-avatar-section">
+                    <div class="ff-avatar-wrapper">
+                        <img src="https://work.mobidudes.in/ASB/freezeandfeast/public/assets/images/no-profile.png" alt="Profile Avatar" id="avatarPreview">
+                            <label for="avatarUpload" class="ff-avatar-upload-btn">
+                                <i class="fa-solid fa-camera"></i>
+                            </label>
+                            <input type="file" name="profile_image" id="avatarUpload" accept="image/*" hidden="">
+                            </div>
+                            <p class="ff-avatar-hint">Click camera to change photo</p>
+                        </div>
+
+                        <!-- Profile Form Fields -->
+                        <div class="ff-profile-fields">
+                            <div class="ff-form-row">
+                                <div class="ff-form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="hidden" name="user_id" value="292">
+                                    <input type="text" name="fullName" value="Ritesh Kumar" placeholder="Enter Full Name">
+                                </div>
+
+                                <div class="ff-form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" name="email" value="ritesh@gmail.com" placeholder="Enter Email Address">
+                                </div>
+                            </div>
+
+                            <div class="ff-form-row">
+                                <div class="ff-form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" name="phone_number" value="" placeholder="Enter Phone Number">
+                                </div>
+                                <div class="ff-form-group">
+                                    <label for="city">Town/City</label>
+                                    <input type="text" name="city" value="" placeholder="Enter Town/City">
+                                </div>
+                            </div>
+
+                            <div class="ff-form-row">
+                                <div class="ff-form-group">
+                                    <label for="postcode">Postcode</label>
+                                    <input type="text" name="postcode" value="" placeholder="Enter Postcode">
+                                </div>
+                            </div>
+
+                            <div class="ff-form-row ff-form-row-full">
+                                <div class="ff-form-group">
+                                    <label for="address">Address Line 1</label>
+                                    <textarea name="address" placeholder="Enter house number/Flat number/Street Name" rows="4"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="ff-form-actions">
+                                <button type="submit" class="ff-submit-btn">
+                                    <i class="fa-solid fa-check"></i>
+                                    Save Changes
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+            </div>
+        </div>
+    </section>
+
+<%- include('../partials/footer.ejs') %>
